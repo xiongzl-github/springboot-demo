@@ -2,6 +2,7 @@ package top.timebook.xdonlineeducationproject.domain;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable{
 
@@ -15,6 +16,19 @@ public class User implements Serializable{
   private String city;
   private java.util.Date createTime;
 
+  public User(String openid, String name, String headImg, String phone, String sign, Integer sex, String city, Date createTime) {
+    this.openid = openid;
+    this.name = name;
+    this.headImg = headImg;
+    this.phone = phone;
+    this.sign = sign;
+    this.sex = sex;
+    this.city = city;
+    this.createTime = createTime;
+  }
+
+  public User() {
+  }
 
   public Integer getId() {
     return id;

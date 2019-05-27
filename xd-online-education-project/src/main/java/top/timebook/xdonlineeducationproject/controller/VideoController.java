@@ -14,12 +14,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @Author xiongzl
+ * @Description 视频控制类
+ * @Date 2019/5/16 2:52
+ * @Param
+ * @Return
+ **/
+
 @RestController
 @RequestMapping("/api/v1/video")
 public class VideoController {
 
+    private final VideoService videoService;
+
     @Autowired
-    private VideoService videoService;
+    public VideoController(VideoService videoService) {
+        this.videoService = videoService;
+    }
 
 
     /**
@@ -49,7 +61,7 @@ public class VideoController {
      * @return
      */
     @GetMapping("/find_by_id")
-    Video findById(@RequestParam(value = "video_id", required = true) int videoId) {
+    Video findById(@RequestParam(value = "video_id") int videoId) {
         return videoService.findById(videoId);
     }
 
